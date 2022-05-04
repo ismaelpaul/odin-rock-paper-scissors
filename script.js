@@ -12,17 +12,44 @@
 // 3- Count either the user's or computer's won rounds
 // 4- End the game when either the user or the computer has 5 wins
 
-function computerPlay() {
-    let computerChoice = Math.ceil(Math.random() * 3)
-
-    if (computerChoice == 1) {
-        computerChoice = "Rock"
-    } else if (computerChoice == 2) {
-        computerChoice = "Paper"
-    } else {
-        computerChoice = "Scissors"
-    }
-    console.log(computerChoice);
+function playerPlay() {
+    let playerSelection = prompt("Choose rock, paper or scissors")
+    console.log(playerSelection);
+    return playerSelection;
 }
 
-computerPlay();
+function computerPlay() {
+    let computerSelection = Math.ceil(Math.random() * 3)
+
+    if (computerSelection == 1) {
+        computerSelection = "Rock"
+    } else if (computerSelection == 2) {
+        computerSelection = "Paper"
+    } else {
+        computerSelection = "Scissors"
+    }
+}
+
+
+function playRound(playerSelection, computerSelection) {
+   
+    if (playerSelection === "Rock" && computerSelection === "Paper") {
+        return "You Lose! Paper beats Rock"
+    } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+        return "You Won! Rock beats Scissors"
+    } else if (playerSelection === "Rock" && computerSelection === "Rock") {
+        return "Game tied"
+    } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+        return "You Lose! Scissors beats Paper"
+    } else if (playerSelection === "Paper" && computerSelection === "Rock") {
+        return "You Won! Paper beats Rock"
+    } else if (playerSelection === "Paper" && computerSelection === "Paper") {
+        return "Game tied"
+    } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+        return "You Lose! Rock beats Scissors"
+    } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+        return "You Won! Scissors beats Paper"
+    } else {
+        return "Game tied"    
+}
+}
