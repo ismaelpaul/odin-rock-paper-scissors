@@ -12,44 +12,51 @@
 // 3- Count either the user's or computer's won rounds
 // 4- End the game when either the user or the computer has 5 wins
 
+
+let playerSelection;
+let computerSelection;
+
 function playerPlay() {
-    let playerSelection = prompt("Choose rock, paper or scissors")
+    playerSelection = prompt("Choose rock, paper or scissors")
     console.log(playerSelection);
     return playerSelection;
 }
 
 function computerPlay() {
-    let computerSelection = Math.ceil(Math.random() * 3)
+    computerSelection = Math.ceil(Math.random() * 3)
 
     if (computerSelection == 1) {
-        computerSelection = "Rock"
+       computerSelection = "Rock"
     } else if (computerSelection == 2) {
         computerSelection = "Paper"
     } else {
         computerSelection = "Scissors"
-    }
+    } console.log(computerSelection)
 }
 
 
 function playRound(playerSelection, computerSelection) {
    
     if (playerSelection === "Rock" && computerSelection === "Paper") {
-        return "You Lose! Paper beats Rock"
+        console.log("You Lose! Paper beats Rock") 
     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-        return "You Won! Rock beats Scissors"
+        console.log("You Won! Rock beats Scissors")
     } else if (playerSelection === "Rock" && computerSelection === "Rock") {
-        return "Game tied"
+        console.log("Game tied")
     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-        return "You Lose! Scissors beats Paper"
+        console.log("You Lose! Scissors beats Paper")
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        return "You Won! Paper beats Rock"
+        console.log("You Won! Paper beats Rock")
     } else if (playerSelection === "Paper" && computerSelection === "Paper") {
-        return "Game tied"
+        console.log("Game tied")
     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-        return "You Lose! Rock beats Scissors"
+        console.log("You Lose! Rock beats Scissors")
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-        return "You Won! Scissors beats Paper"
+        console.log("You Won! Scissors beats Paper")
     } else {
-        return "Game tied"    
+        console.log("Game tied")    
 }
 }
+playerPlay();
+computerPlay();
+playRound(playerSelection, computerSelection);
