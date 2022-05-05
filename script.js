@@ -12,9 +12,9 @@
 // 3- Count either the user's or computer's won rounds
 // 4- End the game when either the user or the computer has 5 wins
 
+// PLAYER SELECTION
 
 let playerSelection;
-let computerSelection;
 
 function playerPlay() {
     playerSelection = turnToUpperCase(prompt("Choose rock, paper or scissors"))
@@ -26,6 +26,10 @@ function turnToUpperCase(playerSelection) {
         return playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()
 }
 }
+
+// COMPUTER SELECTION
+
+let computerSelection;
 
 function computerPlay() {
     computerSelection = Math.ceil(Math.random() * 3)
@@ -39,29 +43,45 @@ function computerPlay() {
     } console.log(computerSelection)
 }
 
+// COMPARES THE RESULTS AND SET A WINNER
+
+let result; 
 
 function playRound(playerSelection, computerSelection) {
-   
+
+
     if (playerSelection === "Rock" && computerSelection === "Paper") {
-        console.log("You Lose! Paper beats Rock") 
+        result = "You Lose! Paper beats Rock"
     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-        console.log("You Won! Rock beats Scissors")
+        result = "You Won! Rock beats Scissors"
     } else if (playerSelection === "Rock" && computerSelection === "Rock") {
-        console.log("Game tied")
+        result = "Game tied"
     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-        console.log("You Lose! Scissors beats Paper")
+        result = "You Lose! Scissors beats Paper"
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        console.log("You Won! Paper beats Rock")
+        result = "You Won! Paper beats Rock"
     } else if (playerSelection === "Paper" && computerSelection === "Paper") {
-        console.log("Game tied")
+        result = "Game tied"
     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-        console.log("You Lose! Rock beats Scissors")
+        result = "You Lose! Rock beats Scissors"
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-        console.log("You Won! Scissors beats Paper")
+        result = "You Won! Scissors beats Paper"
     } else {
-        console.log("Game tied")    
+        result = "Game tied"
 }
 }
-playerPlay();
-computerPlay();
-playRound(playerSelection, computerSelection);
+
+function game(){
+    for(let i = 1; i <= 5; i++) {
+        playerPlay();
+        computerPlay()
+        playRound(playerSelection, computerSelection);
+        console.log(result)
+        console.log(i)
+    }
+}
+
+// playerPlay();
+// computerPlay();
+game()
+// playRound(playerSelection, computerSelection);
