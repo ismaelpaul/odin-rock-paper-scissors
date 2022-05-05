@@ -17,9 +17,14 @@ let playerSelection;
 let computerSelection;
 
 function playerPlay() {
-    playerSelection = prompt("Choose rock, paper or scissors")
+    playerSelection = turnToUpperCase(prompt("Choose rock, paper or scissors"))
     console.log(playerSelection);
-    return playerSelection;
+}
+
+function turnToUpperCase(playerSelection) {
+    if (playerSelection == playerSelection.toUpperCase() || playerSelection.toLowerCase()) {
+        return playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()
+}
 }
 
 function computerPlay() {
