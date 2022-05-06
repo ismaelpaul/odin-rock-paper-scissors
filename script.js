@@ -46,26 +46,34 @@ function computerPlay() {
 // COMPARES THE RESULTS AND SET A WINNER
 
 let result; 
+let playerWins = 0;
+let computerWins = 0;
 
 function playRound(playerSelection, computerSelection) {
 
 
     if (playerSelection === "Rock" && computerSelection === "Paper") {
         result = "You Lose! Paper beats Rock"
+        computerWins += 1;
     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
         result = "You Won! Rock beats Scissors"
+        playerWins += 1;
     } else if (playerSelection === "Rock" && computerSelection === "Rock") {
         result = "Game tied"
     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
         result = "You Lose! Scissors beats Paper"
+        computerWins += 1;
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
         result = "You Won! Paper beats Rock"
+        playerWins += 1;
     } else if (playerSelection === "Paper" && computerSelection === "Paper") {
         result = "Game tied"
     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
         result = "You Lose! Rock beats Scissors"
+        computerWins += 1;
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
         result = "You Won! Scissors beats Paper"
+        playerWins += 1;
     } else {
         result = "Game tied"
 }
@@ -76,8 +84,15 @@ function game(){
         playerPlay();
         computerPlay()
         playRound(playerSelection, computerSelection);
+        console.log(`Player: ${playerWins}`)
+        console.log(`Computer: ${computerWins}`)
         console.log(result)
         console.log(i)
+    }
+    if (playerWins > computerWins) {
+        console.log("Congrats, you beat the computer!")
+    } else {
+        console.log("Sorry, the computer beat you!")
     }
 }
 
