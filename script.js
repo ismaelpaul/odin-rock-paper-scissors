@@ -43,7 +43,7 @@ function computerPlay() {
     } console.log(computerSelection)
 }
 
-// COMPARES THE RESULTS AND SET A WINNER
+// COMPARES THE RESULTS, SET A WINNER's ROUND AND COUNT WIN'S NUMBER
 
 let result; 
 let playerWins = 0;
@@ -74,13 +74,14 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
         result = "You Won! Scissors beats Paper"
         playerWins += 1;
-    } else {
+    } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
         result = "Game tied"
-}
+    }
 }
 
+
 function game(){
-    for(let i = 1; i <= 5; i++) {
+    for(let i = 1; i < 6; i++) {
         playerPlay();
         computerPlay()
         playRound(playerSelection, computerSelection);
@@ -96,7 +97,4 @@ function game(){
     }
 }
 
-// playerPlay();
-// computerPlay();
 game()
-// playRound(playerSelection, computerSelection);
