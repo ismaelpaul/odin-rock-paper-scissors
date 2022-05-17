@@ -21,7 +21,9 @@ function playerPlay() {
     console.log(playerSelection);
 }
 
-function turnToUpperCase(playerSelection) {
+// makes input from user case insensitive
+
+function turnToUpperCase(playerSelection) {    
     if (playerSelection == playerSelection.toUpperCase() || playerSelection.toLowerCase()) {
         return playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()
 }
@@ -80,7 +82,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-function game(){
+// function game(){
     for(let i = 1; i < 6; i++) {
         playerPlay();
         computerPlay()
@@ -96,5 +98,4 @@ function game(){
         console.log("Sorry, the computer beat you!")
     }
 }
-
-game()
+// game()
