@@ -1,0 +1,99 @@
+/* RESET */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Walter Turncoat', cursive;
+}
+
+/* BODY */
+
+body {
+    min-height: 100vh;
+    background-image: url(./imgs/background.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CARD */
+
+.card {
+    width: 45rem;
+    background-color: white;    
+    padding: 5rem 3rem 5rem 3rem;
+    border-radius: 34px;
+    box-shadow: 3px 5px 10px 5px rgb(0 0 0 / 30%);
+}
+
+/* SCORE */
+
+.score {
+    display: flex;
+    justify-content: center;
+    gap: 15rem;
+}
+.player-score {
+    padding-left: 3rem;
+}
+.player-score,
+.computer-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.7em;
+    gap: .5rem;
+}
+.player-score-value,
+.computer-score-value {
+    font-size: 1.9em;
+}
+
+/* HANDS */
+
+.hands {
+    display: flex;
+    justify-content: center;
+    gap: 12rem;
+    margin-top: 5rem;
+    padding: 0 5rem;
+
+}
+.player-hand,
+.computer-hand {
+    display: contents;
+}
+.hands img {
+    max-width: 30%;
+}
+/* RESULT */
+/* Will be added with JS */
+
+.result {
+    height: 15rem;
+}
+
+/* PLAYER SELECTION */
+
+.player-options p {
+    text-align: center;
+    font-size: 1.3em;
+    margin-bottom: 2rem;
+}
+.player-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+
+}
+button {
+    font-size: 1em;
+    background-color: #039BE5;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    padding: .5rem 1.6rem .5rem 1.6rem;
+    min-width: 8rem;
+}
