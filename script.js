@@ -40,42 +40,59 @@ playerPlay.forEach(button => {
          setTimeout( () => {
             playerHand.src = `./imgs/player-hand-${playerSelection}.svg`;
             computerHand.src = `./imgs/computer-hand-${computerSelection}.svg`;
-         }, 2000);
-
-         //display when the player won the round
-         const displayWin = (playerSelection, computerSelection) => {
-
-            
-            contentResult.classList.add('text-result');
-            contentResult.textContent = `You won. ${playerSelection} beats ${computerSelection}`;
-            
-            result.appendChild(contentResult);
-            contentResult.style.animation = 'fadeIn 1s ease'
-            
-            
-        };
-        //display when the player lost the round
-         const displayLose = (playerSelection, computerSelection) => {
-            const result = document.querySelector('.result');
-            const contentResult = document.createElement('p');
-            
-            contentResult.classList.add('text-result');
-            contentResult.textContent = `You lost. ${computerSelection} beats ${playerSelection}`;
-
-            result.appendChild(contentResult);
-     };
+            evaluateRound(playerSelection, computerSelection);
+         }, 2000);;
+    });
 });
-});
+//display when the player won the round
+const displayWin = () => {
+
+    const contentResult = document.querySelector('.result p');
+    
+    contentResult.classList.add('text-result');
+    contentResult.style.cssText = "background-color: #00DCD1;"
+    contentResult.textContent = `You won!`;
+    
+}
+//display when the player lost the round
+const displayLose = () => {
+    
+    const contentResult = document.querySelector('.result p');
+
+    contentResult.classList.add('text-result');
+    contentResult.style.cssText = "background-color: #FF85E2;"
+    contentResult.textContent = `You lost!`;
+
+ };
+
+//display when the player lost the round
+const displayTied = () => {
+
+    const contentResult = document.querySelector('.result p');
+
+    contentResult.classList.add('text-result');
+    contentResult.style.cssText = "background-color: #c2c2c2;"
+    contentResult.textContent = `Game tied.`;
+        
+}
 
 // COMPARES THE RESULTS, SET A WINNER's ROUND AND COUNT WIN'S NUMBER
 
-// let result; 
-// let playerWins = 0;
-// let computerWins = 0;
 
-// function playRound(playerSelection, computerSelection) {
- 
+const evaluateRound = (playerSelection, computerSelection) => {
+    
+    let playerWins = 0;
+    let computerWins = 0;
 
+    //player selects rock
+    if (playerSelection === 'rock') computerSelection === 'scissors' ? displayWin() : computerSelection === 'paper' ? displayLose() : displayTied()
+
+    //player selects paper
+    if (playerSelection === 'paper') computerSelection === 'rock' ? displayWin() : computerSelection === 'scissors' ? displayLose() : displayTied()
+
+    //player selects scissors
+    if (playerSelection === 'scissors') computerSelection === 'paper' ? displayWin() : computerSelection === 'rock' ? displayLose() : displayTied()
+}
 //     if (playerSelection === "Rock" && computerSelection === "Paper") {
 //         result = "You Lose! Paper beats Rock"
 //         computerWins += 1;
