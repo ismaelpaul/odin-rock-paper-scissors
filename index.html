@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>Rock, Paper and Scissors</title>
 </head>
 <body>
@@ -26,23 +26,23 @@
             </div>
             <div class="hands">
                 <div class="player-hand">
-                    <img src="./imgs/left-hand.svg">
+                    <img id="player-hand" src="./imgs/player-hand-rock.svg">
                 </div>
                 <div class="computer-hand">
-                    <img src="./imgs/right-hand.svg">
+                    <img id="computer-hand" src="./imgs/computer-hand-rock.svg">
                 </div>
             </div>
             <div class="result">
-                
+                <p></p>
             </div>
             <div class="player-options">
                 <div>
                     <p>Rock, Paper or Scissors?</p>
                 </div>
                 <div class="player-buttons">
-                    <button>Rock</button>
-                    <button>Paper</button>
-                    <button>Scissors</button>
+                    <button class="rock">Rock</button>
+                    <button class="paper">Paper</button>
+                    <button class="scissors">Scissors</button>
                 </div>
             </div>
         </div>
