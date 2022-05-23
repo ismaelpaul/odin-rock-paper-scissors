@@ -66,15 +66,24 @@ body {
 }
 .hands img {
     max-width: 50%;
-    /* animation: shakeHands 2s; */
 }
 /* RESULT */
 /* Will be added with JS */
 
 .result {
-    height: 15rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
 }
-
+.text-result {
+    font-size: 1.5em;
+    text-align: center;
+    background-color: #00DCD1;
+    border-radius: 40px;
+    padding: 1rem;
+}
 /* PLAYER SELECTION */
 
 .player-options p {
@@ -141,5 +150,14 @@ button:hover {
       transform:  translateY(0px);
     }
   }
-  
+
+  /* ANIMATION RESULT */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
   
