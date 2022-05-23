@@ -1,74 +1,71 @@
 const playerPlay = document.querySelectorAll('button');
 const playerHand = document.querySelector('#player-hand');
-const computerHand = document.querySelector('#computer-hand')
-const hands = document.querySelectorAll('.hands img')
+const computerHand = document.querySelector('#computer-hand');
+const hands = document.querySelectorAll('.hands img');
+
+const result = document.querySelector('.result');
+const contentResult = document.createElement('p');
         
-// computer options to select
-const computerOptions = ['rock', 'paper', 'scissors']
-    
+
 // player play (selection)
 playerPlay.forEach(button => {
     button.addEventListener('click', function() {
 
+        // player selection
+        const playerSelection = this.classList[0];
+        // computer options to select
+        const computerOptions = ['rock', 'paper', 'scissors'];
+
         // computer play (selection)
-        let computerPlay = Math.floor(Math.random() * computerOptions.length)
-        const computerSelection = computerOptions[computerPlay]
+        let computerPlay = Math.floor(Math.random() * computerOptions.length);
+        const computerSelection = computerOptions[computerPlay];
+    
 
         // set the img back to rock image
-        playerHand.src = `./imgs/player-hand-rock.svg`
-        computerHand.src = `./imgs/computer-hand-rock.svg`
+        playerHand.src = `./imgs/player-hand-rock.svg`;
+        computerHand.src = `./imgs/computer-hand-rock.svg`;
 
         //animate before change image
         setTimeout( () => {
             playerHand.style.animation = 'shakeHands 2s ease';
             computerHand.style.animation = 'shakeHands 2s ease';
-         }, 5)
+         }, 5);
         
         //reset animation
         playerHand.style.animation = '';
         computerHand.style.animation = '';
         
-
         //change image according to player selection and computer selection  
 
          setTimeout( () => {
-            playerHand.src = `./imgs/player-hand-${this.textContent}.svg`
-            computerHand.src = `./imgs/computer-hand-${computerSelection}.svg`
-         }, 2000)
-     }) 
-})
-  
+            playerHand.src = `./imgs/player-hand-${playerSelection}.svg`;
+            computerHand.src = `./imgs/computer-hand-${computerSelection}.svg`;
+         }, 2000);
 
+         //display when the player won the round
+         const displayWin = (playerSelection, computerSelection) => {
 
+            
+            contentResult.classList.add('text-result');
+            contentResult.textContent = `You won. ${playerSelection} beats ${computerSelection}`;
+            
+            result.appendChild(contentResult);
+            contentResult.style.animation = 'fadeIn 1s ease'
+            
+            
+        };
+        //display when the player lost the round
+         const displayLose = (playerSelection, computerSelection) => {
+            const result = document.querySelector('.result');
+            const contentResult = document.createElement('p');
+            
+            contentResult.classList.add('text-result');
+            contentResult.textContent = `You lost. ${computerSelection} beats ${playerSelection}`;
 
-
-// function playerPlay() {
-//     playerSelection = turnToUpperCase(prompt("Choose rock, paper or scissors"))
-//     console.log(playerSelection);
-// }
-
-// function turnToUpperCase(playerSelection) {
-//     if (playerSelection == playerSelection.toUpperCase() || playerSelection.toLowerCase()) {
-//         return playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()
-// }
-// } 
-
-
-    
-// COMPUTER SELECTION
-
-
-// function computerPlay() {
-//     computerSelection = Math.ceil(Math.random() * 3)
-
-//     if (computerSelection == 1) {
-//        computerSelection = "Rock"
-//     } else if (computerSelection == 2) {
-//         computerSelection = "Paper"
-//     } else {
-//         computerSelection = "Scissors"
-//     } console.log(computerSelection)
-// }
+            result.appendChild(contentResult);
+     };
+});
+});
 
 // COMPARES THE RESULTS, SET A WINNER's ROUND AND COUNT WIN'S NUMBER
 
