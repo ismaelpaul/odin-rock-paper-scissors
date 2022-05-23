@@ -12,6 +12,7 @@
 body {
     min-height: 100vh;
     background-image: url(./imgs/background.png);
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +21,6 @@ body {
 /* CARD */
 
 .card {
-    width: 45rem;
     background-color: white;    
     padding: 5rem 3rem 5rem 3rem;
     border-radius: 34px;
@@ -65,7 +65,8 @@ body {
     display: contents;
 }
 .hands img {
-    max-width: 30%;
+    max-width: 50%;
+    /* animation: shakeHands 2s; */
 }
 /* RESULT */
 /* Will be added with JS */
@@ -97,3 +98,48 @@ button {
     padding: .5rem 1.6rem .5rem 1.6rem;
     min-width: 10rem;
 }
+button:hover {
+    background-image: linear-gradient(to right, #00DCD1 30%, #FF85E2 100%);
+}
+
+/* ANIMATION HANDS */
+
+@keyframes shakeHands {
+    0% {
+      transform:  translateY(0px);
+    }
+  
+    12.5% {
+      transform:  translateY(-50px);
+    }
+  
+    25% {
+      transform:  translateY(20px);
+    }
+  
+    37.5% {
+      transform:  translateY(-50px);
+    }
+  
+    50% {
+      transform:  translateY(20px);
+    }
+  
+    62.5% {
+      transform:  translateY(-50px);
+    }
+  
+    75% {
+      transform:  translateY(20px);
+    }
+  
+    87.5% {
+      transform:  translateY(-50px);
+    }
+  
+    100% {
+      transform:  translateY(0px);
+    }
+  }
+  
+  
