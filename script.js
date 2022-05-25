@@ -4,7 +4,7 @@ const computerHand = document.querySelector('#computer-hand');
 const hands = document.querySelectorAll('.hands img');
 
 const result = document.querySelector('.result');
-const contentResult = document.createElement('p');
+
         
 
 // player play (selection)
@@ -44,14 +44,25 @@ playerPlay.forEach(button => {
          }, 2000);;
     });
 });
+
+let playerScore = 0;
+let computerScore = 0;
 //display when the player won the round
 const displayWin = () => {
 
     const contentResult = document.querySelector('.result p');
     
     contentResult.classList.add('text-result');
+
+    contentResult.style.animation = '';
+    contentResult.style.animation = 'fadeIn 2s ease';
+
     contentResult.style.cssText = "background-color: #00DCD1;"
     contentResult.textContent = `You won!`;
+
+    const pScore = document.querySelector('.player-score-value');
+    playerScore = playerScore + 1;
+    pScore.textContent = `${playerScore}`;
     
 }
 //display when the player lost the round
@@ -63,6 +74,10 @@ const displayLose = () => {
     contentResult.style.cssText = "background-color: #FF85E2;"
     contentResult.textContent = `You lost!`;
 
+    
+    const cScore = document.querySelector('.computer-score-value');
+    computerScore = computerScore + 1;
+    cScore.textContent = `${computerScore}`;
  };
 
 //display when the player lost the round
@@ -80,12 +95,9 @@ const displayTied = () => {
 
 
 const evaluateRound = (playerSelection, computerSelection) => {
-    
-    let playerWins = 0;
-    let computerWins = 0;
 
     //player selects rock
-    if (playerSelection === 'rock') computerSelection === 'scissors' ? displayWin() : computerSelection === 'paper' ? displayLose() : displayTied()
+    if (playerSelection === 'rock') computerSelection === 'scissors' ? displayWin(playerScore) : computerSelection === 'paper' ? displayLose(computerScore) : displayTied()
 
     //player selects paper
     if (playerSelection === 'paper') computerSelection === 'rock' ? displayWin() : computerSelection === 'scissors' ? displayLose() : displayTied()
@@ -93,32 +105,6 @@ const evaluateRound = (playerSelection, computerSelection) => {
     //player selects scissors
     if (playerSelection === 'scissors') computerSelection === 'paper' ? displayWin() : computerSelection === 'rock' ? displayLose() : displayTied()
 }
-//     if (playerSelection === "Rock" && computerSelection === "Paper") {
-//         result = "You Lose! Paper beats Rock"
-//         computerWins += 1;
-//     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-//         result = "You Won! Rock beats Scissors"
-//         playerWins += 1;
-//     } else if (playerSelection === "Rock" && computerSelection === "Rock") {
-//         result = "Game tied"
-//     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-//         result = "You Lose! Scissors beats Paper"
-//         computerWins += 1;
-//     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-//         result = "You Won! Paper beats Rock"
-//         playerWins += 1;
-//     } else if (playerSelection === "Paper" && computerSelection === "Paper") {
-//         result = "Game tied"
-//     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-//         result = "You Lose! Rock beats Scissors"
-//         computerWins += 1;
-//     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-//         result = "You Won! Scissors beats Paper"
-//         playerWins += 1;
-//     } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
-//         result = "Game tied"
-//     }
-// }
 
 
 // function game(){
