@@ -14,6 +14,7 @@ body {
     background-image: url(./imgs/background.png);
     background-size: cover;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -78,7 +79,7 @@ body {
     
 }
 .text-result {
-    font-size: 1.5em;
+    font-size: 1.7em;
     text-align: center;
     background-color: #00DCD1;
     border-radius: 40px;
@@ -111,6 +112,51 @@ button:hover {
     background-image: linear-gradient(to right, #00DCD1 30%, #FF85E2 100%);
 }
 
+/* END GAME */
+/* Will be added with JS */ 
+.end-game {
+    width: 40rem;
+    display: none;
+    background-color: white;
+    border-radius: 34px;
+    z-index: 1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    padding: 3rem 3rem 2rem 3rem;
+    transform: translate(-50%, -50%)
+}
+.end-game.active {
+    display: block;
+}
+.end-game-message {
+    font-size: 1.5em;
+    text-align: center;
+    padding: 2rem;
+}
+.overlay-end {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.4;
+  }
+  
+.overlay-end.active {
+    display: block;
+  }
+/* FOOTER */
+
+.footer {
+    padding: .5rem;
+}
+.footer a {
+    text-decoration: none ;
+}
 /* ANIMATION HANDS */
 
 @keyframes shakeHands {
