@@ -5,6 +5,8 @@ const hands = document.querySelectorAll('.hands img');
 
 const result = document.querySelector('.result');
 
+const contentResult = document.querySelector('.result p');
+
         
 
 // player play (selection)
@@ -41,7 +43,12 @@ playerPlay.forEach(button => {
             playerHand.src = `./imgs/player-hand-${playerSelection}.svg`;
             computerHand.src = `./imgs/computer-hand-${computerSelection}.svg`;
             evaluateRound(playerSelection, computerSelection);
-         }, 2000);;
+         }, 2000);
+
+         //removes any text content before the round is evaluated
+         contentResult.classList.remove('text-result');
+         contentResult.style.cssText = "none"
+         contentResult.textContent = ``;
     });
 });
 
@@ -81,7 +88,7 @@ const displayLose = () => {
     contentResult.style.cssText = "background-color: #FF85E2;"
     contentResult.textContent = `You lost!`;
 
-    
+
     const cScore = document.querySelector('.computer-score-value');
     computerScore = computerScore + 1;
     cScore.textContent = `${computerScore}`;
@@ -112,7 +119,7 @@ const displayTied = () => {
 const evaluateRound = (playerSelection, computerSelection) => {
 
     //player selects rock
-    if (playerSelection === 'rock') computerSelection === 'scissors' ? displayWin(playerScore) : computerSelection === 'paper' ? displayLose(computerScore) : displayTied()
+    if (playerSelection === 'rock') computerSelection === 'scissors' ? displayWin() : computerSelection === 'paper' ? displayLose() : displayTied()
 
     //player selects paper
     if (playerSelection === 'paper') computerSelection === 'rock' ? displayWin() : computerSelection === 'scissors' ? displayLose() : displayTied()
