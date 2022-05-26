@@ -63,7 +63,14 @@ const displayWin = () => {
     const pScore = document.querySelector('.player-score-value');
     playerScore = playerScore + 1;
     pScore.textContent = `${playerScore}`;
-    
+
+    // score animation
+    setTimeout( () => {
+        pScore.style.animation = 'score .5s ease';
+    }, 5);
+
+    // reset animation
+    pScore.style.animation = '';
 }
 //display when the player lost the round
 const displayLose = () => {
@@ -78,6 +85,14 @@ const displayLose = () => {
     const cScore = document.querySelector('.computer-score-value');
     computerScore = computerScore + 1;
     cScore.textContent = `${computerScore}`;
+
+    // score animation
+    setTimeout( () => {
+        cScore.style.animation = 'score .5s ease';
+    }, 5);
+    
+    // reset animation
+    cScore.style.animation = '';
  };
 
 //display when the player lost the round
