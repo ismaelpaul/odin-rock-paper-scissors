@@ -1,4 +1,4 @@
-const playerPlay = document.querySelectorAll('button');
+const playerPlay = document.querySelectorAll('.player-buttons button');
 const playerHand = document.querySelector('#player-hand');
 const computerHand = document.querySelector('#computer-hand');
 const hands = document.querySelectorAll('.hands img');
@@ -7,7 +7,6 @@ const result = document.querySelector('.result');
 
 const contentResult = document.querySelector('.result p');
 
-        
 
 // player play (selection)
 playerPlay.forEach(button => {
@@ -47,8 +46,9 @@ playerPlay.forEach(button => {
 
          //removes any text content before the round is evaluated
          contentResult.classList.remove('text-result');
-         contentResult.style.cssText = "none"
+         contentResult.style.cssText = "none";
          contentResult.textContent = ``;
+
     });
 });
 
@@ -64,7 +64,7 @@ const displayWin = () => {
     contentResult.style.animation = '';
     contentResult.style.animation = 'fadeIn 2s ease';
 
-    contentResult.style.cssText = "background-color: #00DCD1;"
+    contentResult.style.cssText = "background-color: #00DCD1";
     contentResult.textContent = `You won!`;
 
     const pScore = document.querySelector('.player-score-value');
@@ -78,14 +78,15 @@ const displayWin = () => {
 
     // reset animation
     pScore.style.animation = '';
-}
+};
+
 //display when the player lost the round
 const displayLose = () => {
     
     const contentResult = document.querySelector('.result p');
 
     contentResult.classList.add('text-result');
-    contentResult.style.cssText = "background-color: #FF85E2;"
+    contentResult.style.cssText = "background-color: #FF85E2";
     contentResult.textContent = `You lost!`;
 
 
@@ -108,10 +109,10 @@ const displayTied = () => {
     const contentResult = document.querySelector('.result p');
 
     contentResult.classList.add('text-result');
-    contentResult.style.cssText = "background-color: #c2c2c2;"
-    contentResult.textContent = `Game tied.`;
+    contentResult.style.cssText = "background-color: #c2c2c2";
+    contentResult.textContent = `Game tied!`;
         
-}
+};
 
 // COMPARES THE RESULTS, SET A WINNER's ROUND AND COUNT WIN'S NUMBER
 
@@ -119,30 +120,53 @@ const displayTied = () => {
 const evaluateRound = (playerSelection, computerSelection) => {
 
     //player selects rock
-    if (playerSelection === 'rock') computerSelection === 'scissors' ? displayWin() : computerSelection === 'paper' ? displayLose() : displayTied()
+    if (playerSelection === 'rock') computerSelection === 'scissors' ? displayWin() : computerSelection === 'paper' ? displayLose() : displayTied();
 
     //player selects paper
-    if (playerSelection === 'paper') computerSelection === 'rock' ? displayWin() : computerSelection === 'scissors' ? displayLose() : displayTied()
+    if (playerSelection === 'paper') computerSelection === 'rock' ? displayWin() : computerSelection === 'scissors' ? displayLose() : displayTied();
 
     //player selects scissors
-    if (playerSelection === 'scissors') computerSelection === 'paper' ? displayWin() : computerSelection === 'rock' ? displayLose() : displayTied()
-}
+    if (playerSelection === 'scissors') computerSelection === 'paper' ? displayWin() : computerSelection === 'rock' ? displayLose() : displayTied();
 
+    // finishes the game with 5 wins
+    if (playerScore == 5 && computerScore < 5) displayPlayerWin();
+    if (computerScore == 5 && playerScore < 5) displayComputerWin();
+};
 
-// function game(){
-//     for(let i = 1; i < 6; i++) {
-//         playerPlay();
-//         computerPlay()
-//         playRound(playerSelection, computerSelection);
-//         console.log(`Player: ${playerWins}`)
-//         console.log(`Computer: ${computerWins}`)
-//         console.log(result)
-//         console.log(i)
-//     }
-//     if (playerWins > computerWins) {
-//         console.log("Congrats, you beat the computer!")
-//     } else {
-//         console.log("Sorry, the computer beat you!")
-//     }
-// }
-// game()
+//displays if player won
+const displayPlayerWin = () => {
+
+    //adds active classes and text
+    const endgame = document.querySelector('.end-game');
+    const overlay = document.querySelector('.overlay-end');
+    const winnerText = document.querySelector('.end-game-message')
+
+    endgame.classList.add('active')
+    overlay.classList.add('active')
+    winnerText.textContent = `Congratulations! You beat the computer`;
+
+    //reload the page
+    const gameRestart = document.querySelector('.end-game button')
+
+    gameRestart.addEventListener('click', () =>
+    location.reload())
+};
+
+//displays if computer won
+const displayComputerWin = () => {
+
+    //adds active classes and text
+    const endgame = document.querySelector('.end-game');
+    const overlay = document.querySelector('.overlay-end');
+    const winnerText = document.querySelector('.end-game-message')
+
+    endgame.classList.add('active')
+    overlay.classList.add('active')
+    winnerText.textContent = `Sorry! The computer beat you`;
+
+    //reload the page
+    const gameRestart = document.querySelector('.end-game button')
+
+    gameRestart.addEventListener('click', () =>
+    location.reload())
+};
