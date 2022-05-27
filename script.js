@@ -54,6 +54,7 @@ playerPlay.forEach(button => {
 
 let playerScore = 0;
 let computerScore = 0;
+
 //display when the player won the round
 const displayWin = () => {
 
@@ -61,12 +62,8 @@ const displayWin = () => {
     
     contentResult.classList.add('text-result');
 
-<<<<<<< HEAD
     contentResult.style.animation = '';
     contentResult.style.animation = 'fadeIn 2s ease';
-=======
-// COMPARES THE RESULTS, SET A WINNER's ROUND AND COUNT WIN'S NUMBER
->>>>>>> origin
 
     contentResult.style.cssText = "background-color: #00DCD1";
     contentResult.textContent = `You won!`;
@@ -94,7 +91,6 @@ const displayLose = () => {
     contentResult.textContent = `You lost!`;
 
 
-<<<<<<< HEAD
     const cScore = document.querySelector('.computer-score-value');
     computerScore = computerScore + 1;
     cScore.textContent = `${computerScore}`;
@@ -119,7 +115,7 @@ const displayTied = () => {
         
 };
 
-// COMPARES THE RESULTS, SET A WINNER's ROUND AND COUNT WIN'S NUMBER
+// COMPARES THE RESULTS and SET A WINNER's 
 
 
 const evaluateRound = (playerSelection, computerSelection) => {
@@ -175,51 +171,3 @@ const displayComputerWin = () => {
     gameRestart.addEventListener('click', () =>
     location.reload())
 };
-=======
-    if (playerSelection === "Rock" && computerSelection === "Paper") {
-        result = "You Lose! Paper beats Rock"
-        computerWins += 1;
-    } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-        result = "You Won! Rock beats Scissors"
-        playerWins += 1;
-    } else if (playerSelection === "Rock" && computerSelection === "Rock") {
-        result = "Game tied"
-    } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-        result = "You Lose! Scissors beats Paper"
-        computerWins += 1;
-    } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        result = "You Won! Paper beats Rock"
-        playerWins += 1;
-    } else if (playerSelection === "Paper" && computerSelection === "Paper") {
-        result = "Game tied"
-    } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-        result = "You Lose! Rock beats Scissors"
-        computerWins += 1;
-    } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-        result = "You Won! Scissors beats Paper"
-        playerWins += 1;
-    } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
-        result = "Game tied"
-    }
-}
-
-
-function game(){
-    for(let i = 1; i < 6; i++) {
-        playerPlay();
-        computerPlay()
-        playRound(playerSelection, computerSelection);
-        console.log(`Player: ${playerWins}`)
-        console.log(`Computer: ${computerWins}`)
-        console.log(result)
-        console.log(i)
-    }
-    if (playerWins > computerWins) {
-        console.log("Congrats, you beat the computer!")
-    } else {
-        console.log("Sorry, the computer beat you!")
-    }
-}
-
-game()
->>>>>>> origin
